@@ -1,0 +1,68 @@
+{
+  "_from": "com.wikitude.phonegap.wikitudeplugin@9.1.0",
+  "_id": "com.wikitude.phonegap.wikitudeplugin@9.1.0",
+  "_inBundle": false,
+  "_integrity": "sha512-qG3qP53iu479+S0I+I7gSFqqGkSzM6K8EXO9nhnEKCk3vlY+/ms4pm2eyx3LGf1/b3htJ9HJU3f9u67WCH7E8g==",
+  "_location": "/com.wikitude.phonegap.wikitudeplugin",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "com.wikitude.phonegap.wikitudeplugin@9.1.0",
+    "name": "com.wikitude.phonegap.wikitudeplugin",
+    "escapedName": "com.wikitude.phonegap.wikitudeplugin",
+    "rawSpec": "9.1.0",
+    "saveSpec": null,
+    "fetchSpec": "9.1.0"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/com.wikitude.phonegap.wikitudeplugin/-/com.wikitude.phonegap.wikitudeplugin-9.1.0.tgz",
+  "_shasum": "b203871d6a4f7bf844ca7e310612da1d1fb090ac",
+  "_spec": "com.wikitude.phonegap.wikitudeplugin@9.1.0",
+  "_where": "/Users/ciro_angeleri/Projects/AR-Wikitude-Cordova-Test-2/node_modules",
+  "author": {
+    "name": "Wikitude GmbH"
+  },
+  "bugs": {
+    "url": "https://github.com/Wikitude/wikitude-phonegap/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "Augmented Reality Wikitude SDK Plugin \n        The Wikitude Cordova Plugin enables developers to embed an augmented reality view into their Cordova project. You can create a fully featured app with advanced augmented reality features, including image recognition, object recognition purely using HTML, CSS and JavaScript.\n    ",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "homepage": "https://github.com/Wikitude/wikitude-phonegap#readme",
+  "keywords": [
+    "AR",
+    "augmented reality",
+    "Wikitude",
+    "image recognition",
+    "object recognition",
+    "markerless tracking",
+    "cloud recognition",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "(c) 2016 - 2019 Wikitude GmbH - see License.md for details of the license",
+  "name": "com.wikitude.phonegap.wikitudeplugin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wikitude/wikitude-phonegap.git"
+  },
+  "version": "9.1.0"
+}
