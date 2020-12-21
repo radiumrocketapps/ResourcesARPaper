@@ -1,6 +1,6 @@
-# ResourcesARPaper
+# Resources in CPU and RAM performance assessment for different marker types in Augmented Reality applications
 
-This repository hosts the necessary resources to replicate the experiment described in ... (TBD)
+This repository hosts the necessary resources to replicate the experiment described in CPU and RAM performance assessment for different marker types in Augmented Reality applications
 
 ## Requirements
 
