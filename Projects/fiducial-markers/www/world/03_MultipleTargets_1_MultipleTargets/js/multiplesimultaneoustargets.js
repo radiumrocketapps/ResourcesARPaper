@@ -14,6 +14,7 @@ var World = {
 			scale: 0.4
 		}
 	},
+	count: 0,
 
 	init: function initFn() {
 		this.createOverlays();
@@ -74,22 +75,41 @@ var World = {
 		this.dinoTrackable = new AR.ImageTrackable(this.tracker, "*", {
 			onImageRecognized: function (target) {
 				/*
-          Create 3D model based on which target was recognized.
-        */
+					Create 3D model based on which target was recognized.
+				*/
+				console.log('IMAGEN RECONOCIDA');
 				var model = new AR.Model("assets/models/" + target.name + ".wt3", {
 					scale: World.dinoSettings[target.name].scale,
 					rotate: {
 						z: 180
 					},
-					onError: World.onError
+					onError: function(err) {
+						console.log('HUBO UN ERRROR AL CREAR EL MODELO DEL OBJETO A MOSTRAR');
+						World.onError(err);
+					}
 				});
 
 				/* Adds the model as augmentation for the currently recognized target. */
 				this.addImageTargetCamDrawables(target, model);
-
+				// console.log('VISIBLE', this.isVisible())
 				World.hideInfoBar();
 			},
-			onError: World.onError
+			onImageLost: function (target) {
+				World.count++;
+				// console.log('VISIBLE 2', this.isVisible())
+				// this.destroy(); 
+
+				console.log('SE PERDIO EL TRACKEO', World.count);
+				// console.log('TARGET', target);
+
+			},
+			onError: function(err) {
+				console.log('HUBO UN ERRROR AL REALIZAR EL TRACKEO');
+				World.onError(err)
+			},
+			onExtendedTrackingQualityChanged: function(msg) {
+				console.log('Tracking Quality changed', msg)
+			}
 		});
 	},
 

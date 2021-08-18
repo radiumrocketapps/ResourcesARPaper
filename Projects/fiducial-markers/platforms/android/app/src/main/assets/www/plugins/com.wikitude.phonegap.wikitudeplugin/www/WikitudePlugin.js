@@ -13,9 +13,9 @@ cordova.define("com.wikitude.phonegap.wikitudeplugin.WikitudePlugin", function (
 		 *  You can obtain a free trial key at http =//www.wikitude.com/developer/licenses .
 		 */
 
-		this._sdkKey =
-			"jgy0zaH9/CtcDePW8Gg4ZDIAjgv3iNTwZf5EW+GBtJWHme14g/cs1jEcO1oub3lrV8uFA9DMCarr1uo9zmDwM0TWW5/U2gcgeMOjO+sfjQpHZl6TpaDCblPvBLTIrRhpzDZoXu6ecQ5H3H9IOKINP2S5rDn+xvk290j8vZZjD7pTYWx0ZWRfX4OAFp7YmDAWdc8D1igHDrPvN2U3jIqkmPikLRYTFwGY4dvfTpngQvrnyR7KXVPoMr6x2HpgsEisSTX9R3XiIp9VyeNA8t85axQG6i2po9cKmh/J4nRhTygHBk0KQDSTFZQFqWSC1gc7pnAJj14J7cVAwqqyiBDmBHNnEjL1zm4kNdsOpWnp1VCcYqNYKECqbD3ZbjGss+42k+wVc6iY7QUr8dlEoG/3e3EC+4GfRKDAXzZy2H+0tYHwGpA7lzxY8+ZkrvXfgQIZYVindBmlcrhSm1+rNqrV2du5G5BRNoD0o7qRBh9xeQtm5Jah9ltRWGERfs88v9fl8W0tG/BMqh/DkTk6Y7bZMf783gA9h+MsiRz0VaRl43V+nVhy5RCxF+CO2xcSQ3MOAjhTW8bwckVLD+UrV2x3sol1lpD1c5SpqMR5cxhlvwgH/MazkKXASSOsok4VDc4zee4DKLEG/dzdUoawVHlR2OJMTjWbV3n5jOofkIS9+kpNVxRzn18bx8Zk0degMajFz2L2n+ueyOEaEWaSLGyzl4ht0ne50V9InrlnsguYVpi48wFgiRblY0Ia1STIqPi4RIPNVrjI0A/4f/PyhPbsSILPGI4mVG62nCbPs2gRSoNe8qSVl7oSTk5sqIKv7sasTWULaRIRRbDwEimfwm6jXDH6zWWkeaDYV+MrUjpgzXU=";
-		/**
+		 this._sdkKey =
+		 "CkTUQRX8IQZgmiPYKta0c1T/bgF1ttzu04QXyZuySBX8N6M9cxCtinnsdN/NKEezk7veUDEqOYZAbzta0wVkQbJouoeW6wBxK/mVz4lyn2GLw5O7/TqpaoLMW+NUo5P4zSXCeKfzzP6qxYt8FxyDymOHlgCgllQk/zneCEe7EeFTYWx0ZWRfX5fv7X+0V9BdhSfcub/lhqqMigMaJlW50y9VRGhElcnCzzNgIDHPXAF/mp0edqERntZnImPMu4VufJLcGR6DQ0iFmUalkqX1qnPnSIwuqyKph1LBUx3tmFHoYno6yMOcETWVZDypTGVW3fuchbLJ1m3o8kMDMmAnHA+nqWG5bm9+0+cDyyVzv2DMj8yK1tlhcLoFzFl6QJX8G3+yp6Bz19+0hTFdeLEw5q+5RMNvwj2GjrFO2Vi6iQKwbAzO2BWWuDM6s+uVzbtsMfCsfJGvaP3xjzV65N708AtBbiSN0VYvYbsxz/iSfcdy+5t0aOAyttluGV7l8rkAmTKNL9V1/ppTtkNkcI5oxKZGjYCkkB4Z7zFnC6tftz4YJI9sEWGe+vyT1Jv10wlNRifpvt0fVyMSmvb4l1Q3dJJo2V5vkktbM/nGW+2xU9SqSeLiXiwtsrw+JL+cHoPzYh49klisNXZn1FDssP9g+dK0zxhdi6LpQU4TvFgVe5U+rki4Ac+LPNmrEoXMzP8xIBxvUS0jVeFIuDU5cexn1SLK5pymYVob8+HAk1znh/OuMv0DAftrFOP4edzIV6tSKSshYNSaxbwCQ26JB1uyygcS9e4hBfrgJT5lLDiFhfhun4hlxFFbVqAwX5byva/vPKqT/SozLLvWiY9CApXbM8AscE/9JbsjKqBIDIInNl7Gs7xb5UIOkI+p6hgXzekc";
+	 	/**
 		 *  The Wikitude SDK can run in different modes.
 		 *      * Geo means, that objects are placed at latitude/longitude positions.
 		 *      * ImageTracking means that only image recognition is used in the ARchitect World.
@@ -110,6 +110,13 @@ cordova.define("com.wikitude.phonegap.wikitudeplugin.WikitudePlugin", function (
 	 *                                      	}
 	 *                               	}
 	 */
+	WikitudePlugin.prototype.beforeunload = function() {
+		console.log('BEFORE UNLOADX');
+	};
+	
+	WikitudePlugin.prototype.onunload = function() {
+		console.log('UNLOADING');
+	};
 	WikitudePlugin.prototype.loadARchitectWorld = function (
 		successCallback,
 		errorCallback,
@@ -140,6 +147,9 @@ cordova.define("com.wikitude.phonegap.wikitudeplugin.WikitudePlugin", function (
 		document.addEventListener("resume", this.onResume, false);
 		document.addEventListener("pause", this.onPause, false);
 		document.addEventListener("backbutton", this.onBackButton, false);
+		document.addEventListener("beforeunload", function() {
+			console.log('BEFORE UNLOAD')
+		});
 	};
 
 	/* Managing the Wikitude SDK Lifecycle */

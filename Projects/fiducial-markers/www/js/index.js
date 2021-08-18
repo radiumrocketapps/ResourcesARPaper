@@ -16,6 +16,10 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+window.onunload = function() {
+    console.log('APP CERRANDOSE');
+}
+
 var app = {
 	// represents the device capability of launching ARchitect Worlds with specific features
 	isDeviceSupported: false,
@@ -44,6 +48,12 @@ var app = {
 		}
 		app.wikitudePlugin.setJSONObjectReceivedCallback(app.onJSONObjectReceived);
 		app.loadExampleARchitectWorld(getSamplePath(2, 0));
+
+		window.addEventListener('beforeunload', function(event) {
+			console.log(`do something with the event:`, event);
+			// most recommended is to emit socket like this (just for example):
+			// socket.emit("exit-app", {access_token});
+		});
 	},
 	continueLoadingExampleARchitectWorld: function (example) {
 		/* cordova.file.applicationDirectory is used to demonstrate the use of the cordova file plugin in combination with the Wikitude plugin */
@@ -241,6 +251,7 @@ var app = {
 		}
 	},
 	onBackButton: function () {
+		console.log('ON BACK')
 		window.plugins.insomnia.allowSleepAgain();
 	},
 	showBuildInformation: function () {
